@@ -1,165 +1,472 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jessica K Graduation</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="description" content="Celebrate Jessica's Graduation - Class of 2026 at Smoky Hill High School! Graduation Party RSVP and Photos.">
+    
+    <!-- Open Graph Tags for Social Media -->
+    <meta property="og:title" content="Jessica K Graduation - Class of 2026">
+    <meta property="og:description" content="Join us in celebrating Jessica's big day at Smoky Hill High School!">
+    <meta property="og:image" content="images/DSC_9766.JPG">
+    <meta property="og:type" content="website">
+    
+    <title>Jessica K Graduation - Class of 2026</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background: linear-gradient(to bottom, #000428, #004e92);
-    color: white;
-}
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background: linear-gradient(to bottom, #000428, #004e92);
+            color: white;
+            line-height: 1.6;
+        }
 
-/* HERO IMAGE */
-.hero {
-    background: url('images/DSC_9766.JPG') no-repeat center/cover;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+        /* ===== HERO SECTION ===== */
+        .hero {
+            background: url('images/DSC_9766.JPG') no-repeat center/cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
 
-.hero h1 {
-    font-size: 3em;
-    background: rgba(0,0,0,0.5);
-    padding: 15px;
-    border-radius: 10px;
-}
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 1;
+        }
 
-.hero p {
-    font-size: 1.5em;
-}
+        .hero h1 {
+            font-size: 3em;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px 30px;
+            border-radius: 10px;
+            z-index: 2;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
 
-/* SLIDESHOW */
-.slideshow {
-    max-width: 800px;
-    margin: auto;
-}
+        .hero p {
+            font-size: 1.5em;
+            margin-top: 10px;
+            z-index: 2;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
 
-.slide {
-    display: none;
-}
+        /* ===== INVITATION SECTION ===== */
+        .invitation {
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            margin: 40px 0;
+        }
 
-.slide img {
-    width: 100%;
-    border-radius: 10px;
-}
+        .invitation h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
 
-/* RSVP */
-.rsvp {
-    margin-top: 40px;
-}
+        .invitation p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
 
-input, button {
-    padding: 10px;
-    margin: 5px;
-    border-radius: 5px;
-    border: none;
-}
+        /* ===== SLIDESHOW SECTION ===== */
+        .slideshow-container {
+            max-width: 800px;
+            margin: 40px auto;
+            position: relative;
+            padding: 20px;
+        }
 
-button {
-    background: gold;
-    cursor: pointer;
-}
+        .slideshow-container h2 {
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
 
-/* FIREWORKS */
-canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: -1;
-}
-</style>
+        .slide {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        .slide img {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .slide-nav {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .slide-nav button {
+            background: gold;
+            color: #000;
+            border: none;
+            padding: 8px 12px;
+            margin: 0 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .slide-nav button:hover {
+            background: #ffd700;
+        }
+
+        /* ===== RSVP SECTION ===== */
+        .rsvp {
+            padding: 40px 20px;
+            margin: 40px 0;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .rsvp h2 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        .rsvp p {
+            margin-bottom: 25px;
+        }
+
+        .rsvp-form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        input {
+            display: block;
+            width: 100%;
+            max-width: 350px;
+            padding: 12px;
+            margin: 10px auto;
+            border-radius: 5px;
+            border: 2px solid #ddd;
+            font-size: 1em;
+            transition: border 0.3s;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: gold;
+            box-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+        }
+
+        input::placeholder {
+            color: #999;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            max-width: 350px;
+            padding: 12px;
+            margin: 20px auto;
+            border-radius: 5px;
+            border: none;
+            background: gold;
+            color: #000;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.1s;
+        }
+
+        button:hover {
+            background: #ffd700;
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        .rsvp-success {
+            background: rgba(76, 175, 80, 0.2);
+            border: 2px solid #4CAF50;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            animation: slideDown 0.5s;
+        }
+
+        .rsvp-success h3 {
+            color: #4CAF50;
+            margin-bottom: 10px;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== FIREWORKS CANVAS ===== */
+        #fireworks {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            padding: 30px 20px;
+            background: rgba(0, 0, 0, 0.3);
+            margin-top: 40px;
+            font-size: 0.9em;
+            border-top: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media only screen and (max-width: 768px) {
+            .hero h1 {
+                font-size: 2em;
+                padding: 15px 20px;
+            }
+
+            .hero p {
+                font-size: 1.2em;
+            }
+
+            .invitation h2,
+            .slideshow-container h2,
+            .rsvp h2 {
+                font-size: 1.5em;
+            }
+
+            .invitation p {
+                font-size: 1em;
+            }
+
+            .slide img {
+                max-height: 350px;
+            }
+
+            input,
+            button {
+                max-width: 100% !important;
+            }
+        }
+
+        @media only screen and (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.5em;
+                padding: 10px 15px;
+            }
+
+            .hero p {
+                font-size: 1em;
+            }
+
+            .invitation h2,
+            .slideshow-container h2,
+            .rsvp h2 {
+                font-size: 1.3em;
+            }
+
+            .invitation p {
+                font-size: 0.95em;
+            }
+
+            .slide img {
+                max-height: 250px;
+            }
+        }
+    </style>
 </head>
 
 <body>
+    <!-- Fireworks Animation -->
+    <canvas id="fireworks"></canvas>
 
-<canvas id="fireworks"></canvas>
+    <!-- Hero Section -->
+    <section class="hero" role="banner">
+        <h1>🎓 Let's Celebrate Jessica's Graduation 🎓</h1>
+        <p>Class of 2026 - Smoky Hill High School</p>
+    </section>
 
-<div class="hero">
-    <h1>🎓 Let’s Celebrate Jessica’s Graduation 🎓</h1>
-    <p>Class of 2026 - Smoky Hill High School</p>
-</div>
+    <!-- Invitation Section -->
+    <section class="invitation">
+        <h2>You're Invited!</h2>
+        <p>
+            Come to the Graduation Party<br>
+            📍 16739 E Prentice Cir, Centennial, CO 80015<br>
+            ⏰ 3:00 PM<br>
+            Celebrate with family, friends, and classmates!
+        </p>
+    </section>
 
-<h2>You're Invited!</h2>
-<p>
-Come to the Graduation Party<br>
-📍 16739 E Prentice Cir, Centennial, CO 80015<br>
-⏰ 3:00 PM<br>
-Celebrate with family, friends, and classmates!
-</p>
+    <!-- Slideshow Section -->
+    <section class="slideshow-container" role="region" aria-label="Photo Gallery">
+        <h2>Photo Gallery</h2>
+        <div id="slideshow" class="slideshow">
+            <div class="slide"><img src="images/DSC_0090.JPG" alt="Graduation photo 1"></div>
+            <div class="slide"><img src="images/DSC_9684.JPG" alt="Graduation photo 2"></div>
+            <div class="slide"><img src="images/DSC_9763.JPG" alt="Graduation photo 3"></div>
+            <div class="slide"><img src="images/DSC_9830.JPG" alt="Graduation photo 4"></div>
+            <div class="slide"><img src="images/DSC_9917.JPG" alt="Graduation photo 5"></div>
+            <div class="slide"><img src="images/DSC_9920.JPG" alt="Graduation photo 6"></div>
+            <div class="slide"><img src="images/DSC_9933.JPG" alt="Graduation photo 7"></div>
+            <div class="slide"><img src="images/DSC_9953.JPG" alt="Graduation photo 8"></div>
+            <div class="slide"><img src="images/DSC_9992.JPG" alt="Graduation photo 9"></div>
+            <div class="slide"><img src="images/DSC_0132.JPG" alt="Graduation photo 10"></div>
+            <div class="slide"><img src="images/DSC_9737.JPG" alt="Graduation photo 11"></div>
+            <div class="slide"><img src="images/DSC_9723.JPG" alt="Graduation photo 12"></div>
+        </div>
+        <div class="slide-nav">
+            <button onclick="changeSlide(-1)" aria-label="Previous photo">❮ Previous</button>
+            <button onclick="changeSlide(1)" aria-label="Next photo">Next ❯</button>
+        </div>
+    </section>
 
-<!-- SLIDESHOW -->
-<div class="slideshow">
-    <div class="slide"><img src="images/DSC_0090.JPG"></div>
-    <div class="slide"><img src="images/DSC_9684.JPG"></div>
-    <div class="slide"><img src="images/DSC_9763.JPG"></div>
-    <div class="slide"><img src="images/DSC_9830.JPG"></div>
-    <div class="slide"><img src="images/DSC_9917.JPG"></div>
-    <div class="slide"><img src="images/DSC_9920.JPG"></div>
-    <div class="slide"><img src="images/DSC_9933.JPG"></div>
-    <div class="slide"><img src="images/DSC_9953.JPG"></div>
-    <div class="slide"><img src="images/DSC_9992.JPG"></div>
-    <div class="slide"><img src="images/DSC_0132.JPG"></div>
-    <div class="slide"><img src="images/DSC_9737.JPG"></div>
-    <div class="slide"><img src="images/DSC_9723.JPG"></div>
-</div>
+    <!-- RSVP Section -->
+    <section class="rsvp" role="region" aria-label="RSVP Form">
+        <h2>RSVP</h2>
+        <p>Let us know if you're coming!</p>
+        <form class="rsvp-form" onsubmit="submitRSVP(event)">
+            <input type="text" id="name" placeholder="Your Name" required aria-label="Your Name">
+            <input type="email" id="email" placeholder="Your Email" required aria-label="Your Email">
+            <input type="number" id="guests" placeholder="How many people?" required min="1" max="10" aria-label="Number of guests">
+            <button type="submit" aria-label="Submit RSVP">Submit RSVP</button>
+        </form>
+        <div id="rsvp-message"></div>
+    </section>
 
-<!-- RSVP -->
-<div class="rsvp">
-    <h2>RSVP</h2>
-    <p>Let us know if you're coming!</p>
-    <input type="text" placeholder="Your Name"><br>
-    <input type="email" placeholder="Your Email"><br>
-    <input type="number" placeholder="How many people?"><br>
-    <button onclick="alert('Thanks for RSVP!')">Submit</button>
-</div>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Jessica K Graduation Celebration. All rights reserved.</p>
+    </footer>
 
-<script>
-/* SLIDESHOW */
-let slideIndex = 0;
-showSlides();
+    <script>
+        // ===== SLIDESHOW FUNCTIONALITY =====
+        let slideIndex = 1;
+        let autoSlideInterval;
 
-function showSlides() {
-    let slides = document.getElementsByClassName("slide");
-    for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-    }
-    slideIndex++;
-    if (slideIndex > slides.length) { slideIndex = 1 }
-    slides[slideIndex - 1].style.display = "block";
-    setTimeout(showSlides, 3000);
-}
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.slide');
+            
+            if (n > slides.length) {
+                slideIndex = 1;
+            }
+            if (n < 1) {
+                slideIndex = slides.length;
+            }
+            
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[slideIndex - 1].classList.add('active');
+        }
 
-/* FIREWORKS */
-const canvas = document.getElementById('fireworks');
-const ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+        function changeSlide(n) {
+            clearInterval(autoSlideInterval);
+            slideIndex += n;
+            showSlide(slideIndex);
+            startAutoSlide();
+        }
 
-function random(min, max) {
-    return Math.random() * (max - min) + min;
-}
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(() => {
+                slideIndex++;
+                showSlide(slideIndex);
+            }, 4000); // Change slide every 4 seconds
+        }
 
-function drawFirework() {
-    let x = random(0, canvas.width);
-    let y = random(0, canvas.height / 2);
+        // Initialize slideshow
+        showSlide(slideIndex);
+        startAutoSlide();
 
-    for (let i = 0; i < 20; i++) {
-        ctx.beginPath();
-        ctx.arc(x + random(-50,50), y + random(-50,50), 2, 0, Math.PI*2);
-        ctx.fillStyle = `hsl(${random(0,360)},100%,50%)`;
-        ctx.fill();
-    }
-}
+        // ===== RSVP FORM HANDLING =====
+        function submitRSVP(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const guests = document.getElementById('guests').value;
 
-setInterval(drawFirework, 500);
-</script>
+            if (name && email && guests) {
+                const messageDiv = document.getElementById('rsvp-message');
+                messageDiv.innerHTML = `
+                    <div class="rsvp-success">
+                        <h3>✓ Thank You for RSVP!</h3>
+                        <p>Hi ${name}, we've received your RSVP for ${guests} ${guests == 1 ? 'person' : 'people'}.</p>
+                        <p>We look forward to celebrating with you!</p>
+                    </div>
+                `;
+                document.querySelector('.rsvp-form').reset();
+                setTimeout(() => {
+                    messageDiv.innerHTML = '';
+                }, 5000);
+            }
+        }
 
+        // ===== FIREWORKS ANIMATION =====
+        const canvas = document.getElementById('fireworks');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        function random(min, max) {
+            return Math.random() * (max - min) + min;
+        }
+
+        function drawFirework() {
+            const x = random(0, canvas.width);
+            const y = random(0, canvas.height / 2);
+
+            for (let i = 0; i < 20; i++) {
+                ctx.beginPath();
+                ctx.arc(x + random(-50, 50), y + random(-50, 50), 2, 0, Math.PI * 2);
+                ctx.fillStyle = `hsl(${random(0, 360)}, 100%, 50%)`;
+                ctx.fill();
+            }
+        }
+
+        // Draw fireworks every 800ms
+        setInterval(drawFirework, 800);
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
 </body>
 </html>
