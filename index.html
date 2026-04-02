@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jessica K Graduation Party | Class of 2026</title>
+  <meta name="description" content="Celebrate Jessica K from Smoky Hill High School, Class of 2026. Join us for her graduation party in Centennial, Colorado." />
+  <style>
+    :root {
+      --bg: #fff9f7;
+      --card: rgba(255,255,255,0.92);
+      --text: #2e2430;
+      --muted: #6d5c69;
+      --accent: #e85d8e;
+      --accent-dark: #b83f6b;
+      --gold: #f2c14e;
+      --shadow: 0 18px 45px rgba(56, 31, 44, 0.16);
+      --radius: 22px;
+      --max: 1200px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(242,193,78,0.20), transparent 20%),
+        radial-gradient(circle at top right, rgba(232,93,142,0.15), transparent 20%),
+        linear-gradient(180deg, #fffdfc 0%, var(--bg) 100%);
+      overflow-x: hidden;
+    }
+
+    .fireworks,
+    .fireworks::before,
+    .fireworks::after {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      content: "";
+      background-repeat: no-repeat;
+      opacity: 0.35;
+      z-index: 0;
+    }
+
+    .fireworks {
+      background-image:
+        radial-gradient(circle, rgba(242,193,78,0.85) 0 2px, transparent 3px),
+        radial-gradient(circle, rgba(232,93,142,0.85) 0 2px, transparent 3px),
+        radial-gradient(circle, rgba(255,255,255,0.95) 0 2px, transparent 3px);
+      background-size: 120px 120px, 160px 160px, 140px 140px;
+      background-position: 8% 10%, 88% 14%, 75% 80%;
+      animation: twinkle 8s linear infinite;
+    }
+
+    .fireworks::before {
+      background-image:
+        radial-gradient(circle, rgba(255,214,102,0.8) 0 2px, transparent 3px),
+        radial-gradient(circle, rgba(232,93,142,0.6) 0 2px, transparent 3px);
+      background-size: 180px 180px, 130px 130px;
+      background-position: 20% 78%, 92% 60%;
+      animation: twinkle 10s linear infinite reverse;
+    }
+
+    .fireworks::after {
+      background-image:
+        radial-gradient(circle, rgba(255,255,255,0.9) 0 2px, transparent 3px),
+        radial-gradient(circle, rgba(242,193,78,0.75) 0 2px, transparent 3px);
+      background-size: 110px 110px, 150px 150px;
+      background-position: 50% 8%, 12% 50%;
+      animation: twinkle 12s ease-in-out infinite;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { transform: scale(1); opacity: 0.22; }
+      50% { transform: scale(1.05); opacity: 0.42; }
+    }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero {
+      min-height: 100svh;
+      position: relative;
+      display: grid;
+      align-items: end;
+      background:
+        linear-gradient(to top, rgba(24, 18, 24, 0.68), rgba(24, 18, 24, 0.18) 45%, rgba(255,255,255,0.02)),
+        url("images/hero.jpg") center center / cover no-repeat;
+      padding: 40px 20px 54px;
+    }
+
+    .hero-card {
+      width: min(100%, 850px);
+      margin: 0 auto;
+      background: rgba(255, 250, 252, 0.16);
+      border: 1px solid rgba(255,255,255,0.25);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 28px;
+      padding: 28px 24px;
+      color: white;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.22);
+      text-align: center;
+    }
+
+    .eyebrow {
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      opacity: 0.95;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.6rem, 7vw, 5rem);
+      line-height: 0.98;
+      font-weight: 700;
+    }
+
+    .hero-subtitle {
+      margin: 14px auto 0;
+      max-width: 650px;
+      font-size: clamp(1.05rem, 2.2vw, 1.4rem);
+      line-height: 1.55;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 22px;
+    }
+
+    .pill {
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.32);
+      background: rgba(255,255,255,0.14);
+      font-size: 0.96rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center;
+      margin-top: 26px;
+    }
+
+    .btn {
+      appearance: none;
+      border: none;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      color: white;
+      box-shadow: 0 12px 25px rgba(184,63,107,0.32);
+    }
+    .btn-secondary {
+      background: rgba(255,255,255,0.18);
+      color: white;
+      border: 1px solid rgba(255,255,255,0.28);
+    }
+
+    section {
+      padding: 74px 20px;
+    }
+
+    .section-inner {
+      width: min(100%, var(--max));
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin: 0 0 12px;
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: #412c3c;
+    }
+
+    .section-copy {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 34px;
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 1.06rem;
+    }
+
+    .details-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid rgba(184,63,107,0.1);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+      color: #4f3244;
+    }
+
+    .card p,
+    .card li {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .celebrate-banner {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #fff4f8, #fffef9);
+    }
+
+    .celebrate-banner .card {
+      text-align: center;
+      padding: 34px 26px;
+    }
+
+    .celebrate-banner strong {
+      color: var(--accent-dark);
+    }
+
+    .slideshow-wrap {
+      position: relative;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 24px 60p
